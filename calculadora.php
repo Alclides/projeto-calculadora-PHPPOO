@@ -39,20 +39,47 @@ class Calculadora {
 
 }
 
-$soma = new Calculadora(5,5,"+");
-echo $soma->calculo();
+if (isset($_GET["numero1"]) && $_GET["numero2"] && $_GET["operador"] === "+") {
 
+
+$soma = new Calculadora( $_GET['numero1'], $_GET["numero2"], $_GET["operador"]);
+$soma->calculo();
+}
 echo "<hr>";
 
 $subtracao = new Calculadora(5,9,"-");
-echo  $subtracao->calculo();
+$subtracao->calculo();
 
 echo "<hr>";
 
 $multiplicacao = new Calculadora(10, 5, "*");
-echo $multiplicacao->calculo();
+$multiplicacao->calculo();
 
 echo "<hr>";
 
 $divisao = new Calculadora(10,5,"/");
 echo $divisao->calculo();
+
+echo "<hr>";
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="calculadora.php">
+        <input type="number" name="numero1">
+        <input type="number" name="numero2">
+        <input type="text" name="operador">
+        <input type="submit" value="Enviar">
+        <?php  ?>
+    </form>
+</body>
+</html>
